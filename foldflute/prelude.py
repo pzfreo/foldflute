@@ -488,6 +488,74 @@ def make_folded_spec(spec, positions, L_end, diameters, fold):
                          'segments': fold['segments']}
     return load_spec(out)
 
+# --------------------------------------------- miter elbows (Coltman 2006)
+# For internal/convoluted folds where toroidal bends cannot fit. A 90-deg
+# mitered bend with its outer corner beveled at 45 deg (bevel opening
+# d = 1.26*ID) has its characteristic impedance restored, so it behaves as a
+# straight tube SHORTER than its centerline by a constant, mode-independent
+# 0.32*ID per elbow. Refs: J.W. Coltman, "Acoustic properties of miter bends"
+# (2006) eq. 3-4; Dequand et al., Acta Acustica 89:1025 (2003).
+MITER_SHORTEN_FACTOR = 0.32
+MITER_BEVEL_D_FACTOR = 1.26
+
+def miter_elbow_shorten(spec):
+    return MITER_SHORTEN_FACTOR * 2.0 * bore_radius(spec)
+
+def elbow_effective_map(elbow_arcs, shorten_each):
+    """Physical arc (mm from window) -> effective arc with a point shortening
+    at each compensated miter elbow."""
+    arcs = sorted(elbow_arcs)
+    def f(s):
+        return s - shorten_each * sum(1 for e in arcs if e < s)
+    return f
+
+def to_openwind_geometry_v2(spec, positions, chimneys, L_end, elbow_arcs,
+                            diameters=None):
+    """As to_openwind_geometry, but positions/L_end are PHYSICAL arcs on a
+    convoluted (mitered) bore path; elbow corrections map them to effective.
+    Used by the internal-fold feasibility study (reports/
+    convolution_feasibility.json): graded deep chimneys can place holes at
+    low A exterior targets, but register 2 separates by up to 1.5 semitones —
+    see REPORT.md section 9 before reusing this path for a build."""
+    cal = spec['calibration']
+    lead = spec['headjoint']['effective_length_correction']
+    smap = elbow_effective_map(elbow_arcs, miter_elbow_shorten(spec))
+    end_eff = smap(L_end) + cal['global_length_correction'] + lead
+    r_m = bore_radius(spec) * MM_TO_M
+    main_bore = [[0.0, r_m], [end_eff * MM_TO_M, r_m]]
+    rows = [['label', 'position', 'radius', 'chimney']]
+    for h in effective_holes(spec, positions, diameters, chimneys):
+        rows.append([h['id'], (smap(h['position']) + lead) * MM_TO_M,
+                     h['diameter'] / 2.0 * MM_TO_M, h['chimney'] * MM_TO_M])
+    notes = [ow_label(f['note']) for f in spec['fingerings']]
+    chart = [['label'] + notes]
+    state_char = {'closed': 'x', 'open': 'o'}
+    for h in spec['holes']:
+        row = [h['id']]
+        for f in spec['fingerings']:
+            row.append(state_char[f['holes'][h['id']]])
+        chart.append(row)
+    return main_bore, rows, chart, cal['temperature_c']
+
+def analyze_v2(spec, positions, chimneys, L_end, elbow_arcs, diameters=None,
+               notes=None):
+    main_bore, holes, chart, temp = to_openwind_geometry_v2(
+        spec, positions, chimneys, L_end, elbow_arcs, diameters)
+    comp = ImpedanceComputation(np.array([200.0, 300.0, 400.0]), main_bore,
+                                holes, chart, note=chart[0][1],
+                                temperature=temp, losses=True,
+                                radiation_category='unflanged')
+    std = spec['target']['pitch_standard_hz']
+    want = notes if notes is not None else [f['note'] for f in spec['fingerings']]
+    out = {}
+    for n in want:
+        t = note_hz(n, std)
+        comp.set_note(ow_label(n))
+        out[n] = {'target_hz': t}
+        f_res = _find_impedance_min(comp, t)
+        out[n].update({'f_res': f_res, 'cents': cents_of(f_res, t)})
+    return out
+
 def fold_report_str(rep):
     lines = ['fold: foot U-bend  R=%.1f mm  bend start s=%.1f  h6 %.1f deg into bend'
              % (rep['R'], rep['s_bend'], rep['phi6_deg'])]

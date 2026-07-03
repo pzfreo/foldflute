@@ -148,6 +148,55 @@ manifold single solids). Footprints ≤ 227×101 mm (bed 256², limit 250²).
 - `scripts/build_m*.py` — clean parametric rebuilds
 - `artifacts/m1/`, `artifacts/m2/` — STLs (bed-oriented) + canonical STEPs
 
+## 8a. Addendum — convoluted internal bore study (same day)
+
+Clarified intent: the goal was never "shorten with a bend" but a **convoluted
+internal bore** so the exterior compresses to low A finger positions. This was
+studied quantitatively (`reports/convolution_feasibility.json`, solver code in
+`foldflute/prelude.py` v2 section). Result: **infeasible at a Ø22 cylindrical
+bore with plain keyless toneholes**, from three directions:
+
+1. **Geometry, shallow chimneys.** Hole span is pitch-set (~205 mm for S1
+   diameters; 180 mm at the acoustically-damaged S2 extreme) vs low A's
+   139.5 mm. Toroidal detours need ~4R ≈ 132 mm of axial footprint per
+   inter-hole gap of 20–34 mm — impossible at any bore radius. Mitred folds
+   (Coltman 2006: compensated beveled miter = straight tube −0.32×ID per 90°,
+   mode-independent — adopted as the correction model for any internal fold)
+   fit *outside* the hole span but cannot compress spacing *within* it.
+2. **Stepped deep chimneys.** Holes tapping runs at different depths shift by
+   measured −70…−118 cents (−30…−55 mm) — adjacent 25 mm-spaced holes invert
+   their physical order. Dead end.
+3. **Graded deep chimneys ("ramp bore").** A smooth chimney ramp (10→43 mm,
+   no elbows in the hole span) genuinely places all six holes within
+   **9 mm of the low A targets** with register 1 in tune — but register 2
+   separates catastrophically (F#5 −147 c, G5 −158 c, A5 +128 c): each deep
+   tonehole becomes a resonant side branch and the instrument cannot
+   overblow. A mild ramp (4→18 mm) is dominated: span only 175 mm, worst
+   layout error still +50 mm, register 2 already at −75 c.
+
+The trade frontier (span vs worst register-2 error): 205 mm/−26 c (flat),
+175 mm/−75 c (mild ramp), 155 mm/−158 c (full ramp). Register 2 degrades
+faster than the layout improves at every point.
+
+**Paths that could still reach low A hand feel** (owner's call, all spec
+changes):
+
+- **(a) Ship v1 as-is** — foot-fold M2, proper two-register whistle, length
+  339 vs 286 target, hole positions low-D-like.
+- **(b) Low A *length*, shifted hand.** Fold ~58 mm of bore into a deep
+  gallery above h1 (one mitred sidestep pair fits the 46 mm footprint) plus
+  the tail gallery below h6, keeping all chimneys shallow: full 286 mm low A
+  body length, S1 register quality, hole block sits ~40 mm higher than the
+  low A hand with low-D spacing. Feasible with today's solvers; not yet
+  CAD-built.
+- **(c) Keys/touch-plates** at low A finger positions actuating pads over
+  acoustically-placed holes — the way every large woodwind solves exactly
+  this. Printable rocker keys are plausible FDM parts; significant spec/scope
+  change (v0.3 non-goal).
+- **(d) Narrower/tapered bore study** — second-order for span (hole spacing
+  is pitch-set), changes the instrument's voice; not recommended as the
+  primary lever.
+
 ## 8. Open items / assumptions to confirm
 
 1. **Headjoint effective length 0.0** — M1 exists to calibrate this; expect

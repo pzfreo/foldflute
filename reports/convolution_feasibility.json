@@ -1,0 +1,70 @@
+{
+  "question": "convoluted internal bore to hit low A finger positions at low D pitch",
+  "miter_correction": "Coltman 2006: compensated (beveled, d=1.26*ID) 90-deg miter = straight tube shortened 0.32*ID, mode-independent",
+  "frontier": {
+    "S1_flat_chimneys": {
+      "chimneys": 3.3,
+      "span_mm": 205,
+      "worst_lowA_err_mm": 81,
+      "worst_R2_cents": -26
+    },
+    "F1_mild_ramp": {
+      "chimneys": [
+        4.0,
+        6.6,
+        9.2,
+        12.6,
+        14.6,
+        18.0
+      ],
+      "span_mm": 175,
+      "worst_lowA_err_mm": 50,
+      "R2_cents": {
+        "D5": 4,
+        "E5": -30,
+        "F#5": -57,
+        "G5": -41,
+        "A5": -75,
+        "B5": 40,
+        "C#6": -21,
+        "D6": 20
+      }
+    },
+    "M2c_full_ramp": {
+      "chimneys": [
+        10.0,
+        16.0,
+        22.2,
+        32.0,
+        34.9,
+        42.8
+      ],
+      "span_mm": 155,
+      "worst_lowA_err_mm": 9.1,
+      "R2_cents": {
+        "D5": 22,
+        "E5": -57,
+        "F#5": -147,
+        "G5": -158,
+        "A5": 128,
+        "B5": 15,
+        "C#6": -48,
+        "D6": 44
+      }
+    }
+  },
+  "chimney_sensitivity_measured": {
+    "h1_C#5_cents_at_t": {
+      "3.3": 0,
+      "15": -70,
+      "25": -100,
+      "33.7": -118
+    },
+    "h6_E4_cents_at_t": {
+      "3.3": 0,
+      "20": -74,
+      "42.2": -117
+    }
+  },
+  "verdict": "Low A finger positions + playable register 2 are mutually exclusive at 22mm cylindrical bore with plain keyless toneholes. Geometric route (stepped levels) inverts hole ordering; acoustic route (graded deep chimneys) places holes within 9mm of low A targets but registers separate by up to 1.5 semitones."
+}
