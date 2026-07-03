@@ -197,6 +197,38 @@ changes):
   is pitch-set), changes the instrument's voice; not recommended as the
   primary lever.
 
+## 8b. Addendum 2 — M2b built (option b: low A length, shifted hand)
+
+Owner selected path (b). Built and gated (`artifacts/m2b/`,
+`reports/m2b_solution.json`): the M1 acoustic solution maps unchanged through
+7 Coltman-beveled miter elbows (bevel opening 1.26×ID modeled in CAD; each
+elbow −7.04 mm effective). ~58 mm of bore folds into a head gallery
+(down 38.8 / across 26 / up 38.8) between the spigot and h1, and the tail
+runs down/backward/out the rear face below h6. All chimneys stay 3.3 mm —
+register quality is identical to M1 (regression exact; worst R2 −28 c).
+
+- Visible body **288.4 mm** vs low A 286.4 ± 10 ✓. Bbox 344.4×30×67.6.
+- Visible holes 58.2/93.9/133.5/185.7/206.5/262.9 → errors vs low A targets
+  −33/−23/−10/+8/+9/+32 mm: h3–h5 hit the low A hand, h1/h2 sit high,
+  h6 low (span is pitch-set; see 8a).
+- Section A (0–156 + tenon): monolithic vertical print — spigot and tenon
+  stay round; contains galleries + h1 + h2; gallery legs teardropped
+  (r 10.2 + 45° roof, area-compensated) for the vertical print; 45° wedge
+  transition behind the head bulge (removed a 1097 mm² support ceiling).
+  Section B (156–344.4): left/right shells split on the y=0 bore plane —
+  channels face up on the bed, zero bore overhangs; 3 dowel-pin bosses.
+- Gates: validity PASS ×4, tenon/socket and shells zero-interpenetration,
+  air exactly fills the bore, Augura: shells 1 advisory (0.25 mm feature caps
+  layer height), section A warnings only (tenon-root 2 mm ring bridge, h1/h2
+  hole ceilings 4.6–4.8 mm, brim, feather edges). One fix applied from an
+  Augura tip-over ERROR: the socket collar side lip made the shell rock —
+  collar now flush at width 30 (socket side walls 1.9 mm, 0.1 under min_wall,
+  accepted at a reinforced band).
+- Condensate collects in the head gallery across-run; both galleries drain
+  through the rear foot opening when the instrument is stood upright.
+  Swab access via the A/B joint. Exterior is a plain prism — sculpting for
+  hand comfort is deliberately left for after the calibration print.
+
 ## 8. Open items / assumptions to confirm
 
 1. **Headjoint effective length 0.0** — M1 exists to calibrate this; expect
