@@ -1,0 +1,252 @@
+{
+  "name": "low-d-folded-whistle-v1",
+  "target": {
+    "instrument": "low_d_tin_whistle",
+    "fundamental": "D4",
+    "fundamental_hz": 293.66,
+    "pitch_standard_hz": 440.0,
+    "temperament": "equal",
+    "required_notes": [
+      "D4", "E4", "F#4", "G4", "A4", "B4", "C#5", "D5",
+      "E5", "F#5", "G5", "A5", "B5", "C#6", "D6"
+    ]
+  },
+
+  "headjoint": {
+    "reference": "reference-headjoints/user-low-d-headjoint-v1.step",
+    "fixed": true,
+    "acoustic_origin": "window_center",
+    "measurements_confirmed": true,
+    "tube_outer_diameter": 25.0,
+    "tube_inner_diameter": 22.0,
+    "tube_inner_radius": 11.0,
+    "window_to_tube_end": 120.0,
+    "sleeve_extension_beyond_tube_end": 56.0,
+    "sleeve_end_from_window": 176.0,
+    "sleeve_inner_diameter": 25.0,
+    "sleeve_outer_diameter": 28.6,
+    "sleeve_fit_clearance_radial": 0.1,
+    "sleeve_fit_clearance_diametral": 0.2,
+    "printed_body_mating_outer_diameter": 24.8,
+    "body_connection": "printed_body_outer_diameter_slips_into_25mm_id_sleeve",
+    "window_to_body_socket": 120.0,
+    "socket_outer_diameter": 25.0,
+    "socket_inner_radius": 11.0,
+    "socket_depth": null,
+    "nominal_insertion_depth": null,
+    "effective_length_correction": 0.0,
+    "notes": "Measured from the existing physical headjoint. The printed body acoustic start is at the 120 mm tube end; the 56 mm sleeve is mechanical overlap/retention rather than extra acoustic bore. CAD must not modify voicing geometry."
+  },
+
+  "bore": {
+    "profile": [
+      [0.0, 11.0],
+      [120.0, 11.0],
+      [590.0, 11.0]
+    ],
+    "cross_section": "circular",
+    "prototype_bore_choice": "cylindrical",
+    "body_start_arc": 120.0
+  },
+
+  "centerline": {
+    "description": "Folded path for the printable body only. It starts at body_start_arc.",
+    "segments": [
+      {"type": "straight", "length": 172.168},
+      {"type": "bend", "angle_deg": 180.0, "radius": 40.0},
+      {"type": "straight", "length": 172.168}
+    ]
+  },
+
+  "holes": [
+    {
+      "id": "h1",
+      "label": "top",
+      "finger": "L1",
+      "position": null,
+      "position_seed": 275.0,
+      "diameter": null,
+      "diameter_seed": 8.0,
+      "position_bounds": [210.0, 340.0],
+      "diameter_bounds": [5.5, 11.5],
+      "chimney_height_estimate": 3.0,
+      "chimney_height_measured": null,
+      "exit_normal": [0.0, 0.0, 1.0]
+    },
+    {
+      "id": "h2",
+      "label": "second",
+      "finger": "L2",
+      "position": null,
+      "position_seed": 325.0,
+      "diameter": null,
+      "diameter_seed": 8.0,
+      "position_bounds": [260.0, 390.0],
+      "diameter_bounds": [5.5, 11.5],
+      "chimney_height_estimate": 3.0,
+      "chimney_height_measured": null,
+      "exit_normal": [0.0, 0.0, 1.0]
+    },
+    {
+      "id": "h3",
+      "label": "third",
+      "finger": "L3",
+      "position": null,
+      "position_seed": 380.0,
+      "diameter": null,
+      "diameter_seed": 8.0,
+      "position_bounds": [310.0, 445.0],
+      "diameter_bounds": [5.5, 11.5],
+      "chimney_height_estimate": 3.0,
+      "chimney_height_measured": null,
+      "exit_normal": [0.0, 0.0, 1.0]
+    },
+    {
+      "id": "h4",
+      "label": "fourth",
+      "finger": "R1",
+      "position": null,
+      "position_seed": 425.0,
+      "diameter": null,
+      "diameter_seed": 8.0,
+      "position_bounds": [360.0, 500.0],
+      "diameter_bounds": [5.5, 12.0],
+      "chimney_height_estimate": 3.0,
+      "chimney_height_measured": null,
+      "exit_normal": [0.0, 0.0, 1.0]
+    },
+    {
+      "id": "h5",
+      "label": "fifth",
+      "finger": "R2",
+      "position": null,
+      "position_seed": 475.0,
+      "diameter": null,
+      "diameter_seed": 8.5,
+      "position_bounds": [405.0, 545.0],
+      "diameter_bounds": [5.5, 12.5],
+      "chimney_height_estimate": 3.0,
+      "chimney_height_measured": null,
+      "exit_normal": [0.0, 0.0, 1.0]
+    },
+    {
+      "id": "h6",
+      "label": "bottom",
+      "finger": "R3",
+      "position": null,
+      "position_seed": 525.0,
+      "diameter": null,
+      "diameter_seed": 9.0,
+      "position_bounds": [455.0, 575.0],
+      "diameter_bounds": [5.5, 13.0],
+      "chimney_height_estimate": 3.0,
+      "chimney_height_measured": null,
+      "exit_normal": [0.0, 0.0, 1.0]
+    }
+  ],
+
+  "fingering_scope": "standard six-hole tin-whistle diatonic fingerings, sounding D -> D' -> D''",
+  "fingerings": [
+    {"note": "D4",  "register": 1, "holes": {"h1": "closed", "h2": "closed", "h3": "closed", "h4": "closed", "h5": "closed", "h6": "closed"}},
+    {"note": "E4",  "register": 1, "holes": {"h1": "closed", "h2": "closed", "h3": "closed", "h4": "closed", "h5": "closed", "h6": "open"}},
+    {"note": "F#4", "register": 1, "holes": {"h1": "closed", "h2": "closed", "h3": "closed", "h4": "closed", "h5": "open",   "h6": "open"}},
+    {"note": "G4",  "register": 1, "holes": {"h1": "closed", "h2": "closed", "h3": "closed", "h4": "open",   "h5": "open",   "h6": "open"}},
+    {"note": "A4",  "register": 1, "holes": {"h1": "closed", "h2": "closed", "h3": "open",   "h4": "open",   "h5": "open",   "h6": "open"}},
+    {"note": "B4",  "register": 1, "holes": {"h1": "closed", "h2": "open",   "h3": "open",   "h4": "open",   "h5": "open",   "h6": "open"}},
+    {"note": "C#5", "register": 1, "holes": {"h1": "open",   "h2": "open",   "h3": "open",   "h4": "open",   "h5": "open",   "h6": "open"}},
+    {"note": "D5",  "register": 2, "holes": {"h1": "closed", "h2": "closed", "h3": "closed", "h4": "closed", "h5": "closed", "h6": "closed"}},
+    {"note": "E5",  "register": 2, "holes": {"h1": "closed", "h2": "closed", "h3": "closed", "h4": "closed", "h5": "closed", "h6": "open"}},
+    {"note": "F#5", "register": 2, "holes": {"h1": "closed", "h2": "closed", "h3": "closed", "h4": "closed", "h5": "open",   "h6": "open"}},
+    {"note": "G5",  "register": 2, "holes": {"h1": "closed", "h2": "closed", "h3": "closed", "h4": "open",   "h5": "open",   "h6": "open"}},
+    {"note": "A5",  "register": 2, "holes": {"h1": "closed", "h2": "closed", "h3": "open",   "h4": "open",   "h5": "open",   "h6": "open"}},
+    {"note": "B5",  "register": 2, "holes": {"h1": "closed", "h2": "open",   "h3": "open",   "h4": "open",   "h5": "open",   "h6": "open"}},
+    {"note": "C#6", "register": 2, "holes": {"h1": "open",   "h2": "open",   "h3": "open",   "h4": "open",   "h5": "open",   "h6": "open"}},
+    {"note": "D6",  "register": 3, "holes": {"h1": "closed", "h2": "closed", "h3": "closed", "h4": "closed", "h5": "closed", "h6": "closed"}}
+  ],
+
+  "physical_layout": {
+    "reference": "mk-pro-a-web-derived",
+    "source_url": "https://mkwhistles.com/products/mk-pro-low-a-whistle",
+    "scale_drawing_url": "https://mkwhistles.com/cdn/shop/files/Pro_A_Scaling_Drawing_v2_7549fd57-1002-4cb1-be67-190358c345fa.pdf",
+    "source_confidence": "approximate; derived from published scale drawing using its 20 mm calibration square",
+    "meaning": "Physical A whistle body length and approximate finger-hole positions only; acoustics remain low D.",
+    "coordinate_system": "x from body socket toward foot, y lateral, z outward from nominal front surface",
+    "overall_reference_length": 386.0,
+    "body_length": 286.4,
+    "body_length_tolerance": 10.0,
+    "non_acoustic_tail_allowed": false,
+    "length_conflict_policy": "relax_visual_length",
+    "max_width": null,
+    "max_depth": null,
+    "hole_centers_from_socket": {
+      "h1": 91.3,
+      "h2": 116.8,
+      "h3": 143.3,
+      "h4": 177.3,
+      "h5": 197.3,
+      "h6": 230.8
+    },
+    "hole_position_tolerance": 8.0
+  },
+
+  "ergonomics": {
+    "finger_template_source": "measured_low_a_body_layout",
+    "finger_template": {
+      "h1": {"target_xyz": null, "surface_normal": [0.0, 0.0, 1.0], "tolerance": 4.0},
+      "h2": {"target_xyz": null, "surface_normal": [0.0, 0.0, 1.0], "tolerance": 4.0},
+      "h3": {"target_xyz": null, "surface_normal": [0.0, 0.0, 1.0], "tolerance": 4.0},
+      "h4": {"target_xyz": null, "surface_normal": [0.0, 0.0, 1.0], "tolerance": 4.0},
+      "h5": {"target_xyz": null, "surface_normal": [0.0, 0.0, 1.0], "tolerance": 4.0},
+      "h6": {"target_xyz": null, "surface_normal": [0.0, 0.0, 1.0], "tolerance": 4.0}
+    }
+  },
+
+  "body": {
+    "style_prompt": "low A-sized folded low D whistle body",
+    "min_wall": 2.0,
+    "shell_split_plane": "bore_plane",
+    "split_strategy": "design_split_from_start_with_single_canonical_solid",
+    "shell_join": "glued_centerline_seam",
+    "gasket": false,
+    "alignment_features": true
+  },
+
+  "fabrication": {
+    "process": "FDM",
+    "material": "PETG",
+    "print_bed": [256.0, 256.0],
+    "max_exported_part_footprint": [250.0, 250.0],
+    "layer_orientation": "split halves printed from the centreline split layout, subject to CAD printability checks",
+    "shell_closure": "glued_down_centreline",
+    "gasket_material": null,
+    "headjoint_fit": "push_fit_printed_spigot_into_25mm_id_sleeve",
+    "fallback_headjoint_seal": "waxed_thread_wrap_if_push_fit_leaks_or_slips",
+    "printability": {
+      "mcp_tool": "build123d-mcp.analyze_printability",
+      "backend": "pzfreo/augura",
+      "analysis_type": "BREP-exact FDM printability",
+      "run_on": ["left_shell", "right_shell"],
+      "build_volume": [256.0, 256.0, null],
+      "bed_fit_margin": 3.0,
+      "required_checks": [
+        "watertight_manifold",
+        "overhangs",
+        "thin_walls",
+        "minimum_vertical_feature",
+        "tip_over_risk",
+        "brim_or_raft_need",
+        "bed_fit"
+      ],
+      "support_policy": "prefer redesign/orientation changes over supports inside toneholes, bore, socket, or glue lands"
+    }
+  },
+
+  "calibration": {
+    "temperature_c": 20.0,
+    "global_length_correction": 0.0,
+    "headjoint_effective_length_correction": 0.0,
+    "hole_radius_corrections": {},
+    "chimney_corrections": {},
+    "observed_fingering_residuals_cents": {}
+  }
+}

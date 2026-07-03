@@ -1,0 +1,109 @@
+{
+  "m1_straight": {
+    "diameters": {
+      "h1": 11.0,
+      "h2": 10.5,
+      "h3": 10.0,
+      "h4": 10.0,
+      "h5": 10.5,
+      "h6": 11.0
+    },
+    "positions": {
+      "h1": 284.228,
+      "h2": 320.044,
+      "h3": 359.582,
+      "h4": 411.784,
+      "h5": 432.787,
+      "h6": 489.228
+    },
+    "L_end": 571.885,
+    "cents": {
+      "D4": 0.01,
+      "E4": -0.1,
+      "F#4": -0.17,
+      "G4": -0.11,
+      "A4": 0.37,
+      "B4": -0.35,
+      "C#5": -0.15,
+      "D5": 7.7,
+      "E5": -2.14,
+      "F#5": -9.49,
+      "G5": -6.68,
+      "A5": -17.74,
+      "B5": -22.99,
+      "C#6": -25.81,
+      "D6": 13.13
+    }
+  },
+  "m2_folded": {
+    "diameters": {
+      "h1": 11.0,
+      "h2": 10.5,
+      "h3": 10.0,
+      "h4": 10.0,
+      "h5": 10.5,
+      "h6": 11.0
+    },
+    "positions": {
+      "h1": 284.228,
+      "h2": 319.934,
+      "h3": 359.732,
+      "h4": 411.784,
+      "h5": 432.787,
+      "h6": 489.984
+    },
+    "L_end": 574.897,
+    "cents": {
+      "D4": -0.14,
+      "E4": -0.26,
+      "F#4": -0.19,
+      "G4": -0.11,
+      "A4": -0.19,
+      "B4": -0.0,
+      "C#5": -0.08,
+      "D5": 7.56,
+      "E5": -2.3,
+      "F#5": -9.52,
+      "G5": -6.68,
+      "A5": -18.22,
+      "B5": -22.76,
+      "C#6": -25.75,
+      "D6": 12.99
+    },
+    "fold": {
+      "R": 33.0,
+      "s_bend": 465.22439145887574,
+      "phi6_deg": 42.9888771553712,
+      "apex_x": 378.22439145887574,
+      "foot_x": 339.22439145887574,
+      "body_len_visible": 338.52439145887575,
+      "len_err_vs_lowA": 52.12439145887578,
+      "hole_err_vs_lowA": {
+        "h1": 16.92809682402266,
+        "h2": 27.134242409538345,
+        "h3": 40.431722996144345,
+        "h4": 58.48365121072743,
+        "h5": 59.48652391527992,
+        "h6": 80.92565164667843
+      },
+      "pass_separation": 66.0,
+      "feasible": true,
+      "violations": [
+        "h1 exterior 108.2 vs low A target 91.3 (err +16.9, tol 8)",
+        "h2 exterior 143.9 vs low A target 116.8 (err +27.1, tol 8)",
+        "h3 exterior 183.7 vs low A target 143.3 (err +40.4, tol 8)",
+        "h4 exterior 235.8 vs low A target 177.3 (err +58.5, tol 8)",
+        "h5 exterior 256.8 vs low A target 197.3 (err +59.5, tol 8)",
+        "h6 exterior 311.7 vs low A target 230.8 (err +80.9, tol 8)",
+        "visible body length 338.5 vs low A 286.4 (err +52.1, tol 10)"
+      ]
+    }
+  },
+  "scenarios": {
+    "S0_seed": "worst R2 C#6 -97c, span 209mm",
+    "S1_big": "worst R2 C#6 -26c, span 205mm  <- selected",
+    "S2_compress": "worst R2 F#5 -37c, span 180mm",
+    "S3_mid": "worst R2 C#6 -24c, span 194mm"
+  },
+  "bend_correction": "toroidal inertance ratio (1+sqrt(1-B^2))/2, kappa=1.0, Nederveen JASA 104:1616 (1998); Felix/Dalmont/Nederveen JASA 131:4164 (2012)"
+}
