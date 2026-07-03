@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "build123d-mcp": {
+      "command": "uv",
+      "args": [
+        "tool",
+        "run",
+        "--python",
+        "3.12",
+        "--with",
+        "openwind",
+        "--with",
+        "scipy",
+        "build123d-mcp@latest",
+        "--allow-imports",
+        "openwind,scipy,numpy"
+      ]
+    }
+  }
+}
