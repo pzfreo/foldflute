@@ -1,0 +1,52 @@
+{
+  "design": "M2b rev5: Carbony-style turret chimneys, larger holes",
+  "diameters": {
+    "h1": 11.5,
+    "h2": 9.5,
+    "h3": 8.5,
+    "h4": 12.0,
+    "h5": 12.5,
+    "h6": 9.0
+  },
+  "chimneys": {
+    "h1": 3.3,
+    "h2": 4.98,
+    "h3": 7.52,
+    "h4": 3.3,
+    "h5": 3.3,
+    "h6": 8.48
+  },
+  "turrets_above_face": {
+    "h2": 1.68,
+    "h3": 4.22,
+    "h6": 5.18
+  },
+  "positions_eff": {
+    "h1": 284.84,
+    "h2": 311.79,
+    "h3": 340.42,
+    "h4": 415.29,
+    "h5": 437.51,
+    "h6": 465.62
+  },
+  "gaps_cc": [
+    26.9,
+    28.6,
+    74.9,
+    22.2,
+    28.1
+  ],
+  "L_eff": 570.37,
+  "R1_worst": 2.0,
+  "R2": {
+    "D5": 7.4,
+    "E5": -19.0,
+    "F#5": -11.5,
+    "G5": -7.8,
+    "A5": -46.5,
+    "B5": -59.1,
+    "C#6": -57.4,
+    "D6": 18.9
+  },
+  "rationale": "same acoustic mass split as bigger-hole+taller-chimney (Gonzato rule / Carbony close-spaced precedent): ~50% more venting area on h3/h6, register 2 unchanged vs rev3"
+}
