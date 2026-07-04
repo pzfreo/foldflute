@@ -1,0 +1,236 @@
+{
+  "bore_r": 11.0,
+  "z_run": 14.3,
+  "z_gal": 41.7422,
+  "z_tail": 40.3,
+  "z_rear": 56.0,
+  "col1": 92.0,
+  "col2": 118.0,
+  "x_t": 330.9,
+  "x_e": 258.7391,
+  "bev_u": 2.399,
+  "bevels": [
+    [
+      92.0,
+      14.3,
+      45
+    ],
+    [
+      92.0,
+      41.7422,
+      225
+    ],
+    [
+      118.0,
+      41.7422,
+      -45
+    ],
+    [
+      118.0,
+      14.3,
+      135
+    ],
+    [
+      330.9,
+      14.3,
+      45
+    ],
+    [
+      330.9,
+      40.3,
+      -45
+    ],
+    [
+      258.7391,
+      40.3,
+      135
+    ]
+  ],
+  "holes": {
+    "h1": {
+      "x": 138.1159,
+      "d": 11.5,
+      "chimney": 3.3,
+      "exit_z": -0.0
+    },
+    "h2": {
+      "x": 165.0645,
+      "d": 9.5,
+      "chimney": 4.9797,
+      "exit_z": -1.6797
+    },
+    "h3": {
+      "x": 193.6994,
+      "d": 8.5,
+      "chimney": 7.5152,
+      "exit_z": -4.2152
+    },
+    "h4": {
+      "x": 268.5651,
+      "d": 12.0,
+      "chimney": 3.3,
+      "exit_z": -0.0
+    },
+    "h5": {
+      "x": 290.784,
+      "d": 12.5,
+      "chimney": 3.3,
+      "exit_z": -0.0
+    },
+    "h6": {
+      "x": 318.9,
+      "d": 9.0,
+      "chimney": 8.4836,
+      "exit_z": -5.1836
+    }
+  },
+  "L_eff_1d": 570.3653,
+  "positions_1d": {
+    "h1": 284.8403,
+    "h2": 311.7889,
+    "h3": 340.4237,
+    "h4": 415.2895,
+    "h5": 437.5084,
+    "h6": 465.6244
+  },
+  "fingerings": {
+    "D4": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "closed",
+      "h6": "closed"
+    },
+    "E4": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "closed",
+      "h6": "open"
+    },
+    "F#4": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "open",
+      "h6": "open"
+    },
+    "G4": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "A4": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "B4": {
+      "h1": "closed",
+      "h2": "open",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "C#5": {
+      "h1": "open",
+      "h2": "open",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "D5": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "closed",
+      "h6": "closed"
+    },
+    "E5": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "closed",
+      "h6": "open"
+    },
+    "F#5": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "open",
+      "h6": "open"
+    },
+    "G5": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "A5": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "B5": {
+      "h1": "closed",
+      "h2": "open",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "C#6": {
+      "h1": "open",
+      "h2": "open",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "D6": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "closed",
+      "h6": "closed"
+    }
+  },
+  "targets": {
+    "D4": 293.665,
+    "E4": 329.628,
+    "F#4": 369.994,
+    "G4": 391.995,
+    "A4": 440.0,
+    "B4": 493.883,
+    "C#5": 554.365,
+    "D5": 587.33,
+    "E5": 659.255,
+    "F#5": 739.989,
+    "G5": 783.991,
+    "A5": 880.0,
+    "B5": 987.767,
+    "C#6": 1108.731,
+    "D6": 1174.659
+  },
+  "temperature_c": 20.0
+}
