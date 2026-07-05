@@ -15,7 +15,7 @@ import math
 import os
 
 from build123d import (Align, Axis, Box, Cone, Cylinder, Location,
-                       export_step)
+                       Plane, Vector, export_step)
 
 from . import geometry as G
 
@@ -46,21 +46,42 @@ def _taper_bore(doc, radius_fn, extra_foot=0.0):
     return out
 
 
-def _face_halfspace(doc, keep='below', pad=0.0):
-    """A big box whose top face lies on the tilted face plane (offset by pad
-    along +z). keep='below' returns material on the bore side (z<face)."""
+def _face_halfspace(doc, keep='bore', pad=0.0):
+    """Half-space solid bounded exactly by the tilted face plane z = z0+slope*x.
+    keep='bore' returns the material side (toward the bore, +normal); 'outside'
+    the room side. Built in a Plane frame whose Z axis is the face normal, so
+    there is no rotation-order ambiguity."""
     z0, slope = G.face_plane(doc)
-    ang = math.degrees(math.atan(slope))
-    align = (Align.CENTER, Align.CENTER,
-             Align.MAX if keep == 'below' else Align.MIN)
-    box = Box(_BIG, _BIG, _BIG, align=align)
-    box = box.rotate(Axis.Y, ang)
-    return box.move(Location((0, 0, z0 + pad)))
+    # bore-side normal points away from the face into the material (+z-ish)
+    n = Vector(-slope, 0.0, 1.0)
+    n = n / n.length
+    pl = Plane(origin=Vector(0, 0, z0) + n * pad, z_dir=n)
+    zalign = Align.MIN if keep == 'bore' else Align.MAX
+    box = Box(_BIG, _BIG, _BIG, align=(Align.CENTER, Align.CENTER, zalign))
+    return pl * box
+
+
+def _face_start(doc):
+    """x where the flat face begins. Above this (toward the fipple) the body
+    is a full round tube — a single tilted plane through the hole exits would
+    otherwise rise above the bore bottom and slice the head bore."""
+    return G.hole(doc, 'h1')['position'] - 14.0
+
+
+def _keep_region(doc, pad=0.0):
+    """Material region = full head tube (x < face_start) UNION the face
+    half-space over the hole span. Intersecting with this trims chimneys at
+    the face without eating the round head bore."""
+    xs = _face_start(doc)
+    head = Box(2 * xs + _BIG, _BIG, _BIG,
+               align=(Align.MAX, Align.CENTER, Align.CENTER)).move(
+        Location((xs, 0, 0)))
+    return head + _face_halfspace(doc, keep='bore', pad=pad)
 
 
 def build_air(doc):
     """The air column: tapered bore + angled tonehole chimneys, cut flush at
-    the face plane so each chimney ends in a coplanar exit disc."""
+    the face plane over the hole span (round head bore preserved)."""
     air = _taper_bore(doc, lambda x: G.r_bore(doc, x))
     for hid in G.HOLE_IDS:
         e = G.hole_exit(doc, hid)
@@ -72,7 +93,7 @@ def build_air(doc):
                 .rotate(Axis.Y, 180.0 - th)             # point outward (-z side)
                 .move(Location((x, 0, 0))))
         air = air + chim
-    air = air & _face_halfspace(doc, keep='below')      # trim to the face
+    air = air & _keep_region(doc)                       # trim chimneys to face
     return air
 
 
@@ -91,7 +112,7 @@ def build_body(doc, wall=2.5, back_depth=None):
                 back_depth, align=(Align.MIN, Align.CENTER, Align.MAX))
             .move(Location((b['body_start'], 0, b['socket_radius'] + wall))))
     body = outer + slab
-    body = body & _face_halfspace(doc, keep='below', pad=0.0)
+    body = body & _face_halfspace(doc, keep='bore', pad=0.0)
     body = body - build_air(doc)
     return body
 
