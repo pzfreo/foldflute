@@ -244,3 +244,10 @@ register quality is identical to M1 (regression exact; worst R2 −28 c).
 6. Bend-correction κ=1.0 — M2-vs-M1 tuner comparison calibrates it.
 7. `apply_calibration()` (fitting corrections from tuner observations) is
    not yet implemented — deliberately deferred until M1 data exists.
+8. **As-exported FEM gate (owner requirement, do when M2d CAD lands):**
+   in addition to the parametric-mirror gate, import the literal exported
+   STEP (`m2d_body_canonical.step`) into netgen (`OCCGeometry` on the file),
+   classify window/hole-exit/foot faces geometrically, and re-run the
+   Helmholtz gate on at least D4/A4/C#5 directly on the shipped artifact.
+   Purpose: catch any divergence between solver state, CAD mirror, and the
+   actual export before printing.
