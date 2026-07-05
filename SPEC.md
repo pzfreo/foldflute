@@ -33,6 +33,21 @@ conditions, and boundary corrections. The exterior 3D body shape is mostly
 acoustically free, provided the CAD-derived chimney depths and bend corrections
 are fed back into the acoustic model.
 
+## 1a. Requirement amendment — v0.4 (owner, 2026-07-05)
+
+The low A physical layout goals are **withdrawn**. `physical_layout`
+hole-position targets and the low A body-length target no longer constrain
+the design. The binding ergonomic requirement is:
+
+- **Adjacent holes within each hand are <= 29.0 mm centre to centre**
+  (h1-h2, h2-h3 for the left hand; h4-h5, h5-h6 for the right hand).
+- The fipple-to-left-hand distance and the left-hand-to-right-hand distance
+  are unconstrained.
+
+Consequences: G4 and the fold-path/layout machinery become optional
+(compactness may still motivate folding, but nothing requires it); the
+between-hands gap floats to whatever acoustics prefers; body length floats.
+
 ## 2. Goals
 
 - G1. Produce a low D whistle body for an existing fixed headjoint.

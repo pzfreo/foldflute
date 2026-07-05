@@ -1,0 +1,4 @@
+__pycache__/
+.venv-fem/
+.venv-cad/
+.DS_Store

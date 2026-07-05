@@ -1,0 +1,49 @@
+{
+  "design": "M2b low-A-length: head gallery (down/across/up, C=38.78) + tail gallery (down/back/out rear face); 7 Coltman-beveled miter elbows; all chimneys 3.3mm; S1 diameters; M1 acoustics mapped through elbow corrections (regression exact).",
+  "visible_holes_mm": {
+    "h1": 58.2,
+    "h2": 93.9,
+    "h3": 133.5,
+    "h4": 185.7,
+    "h5": 206.5,
+    "h6": 262.9
+  },
+  "lowA_err_mm": {
+    "h1": -33.1,
+    "h2": -22.9,
+    "h3": -9.8,
+    "h4": 8.4,
+    "h5": 9.2,
+    "h6": 32.1
+  },
+  "visible_body_len": 288.4,
+  "body_bbox": [
+    344.4,
+    30.0,
+    67.6
+  ],
+  "elbow_arcs_from_window": [
+    189.0,
+    227.8,
+    253.8,
+    292.6,
+    528.5,
+    554.5,
+    605.2
+  ],
+  "L_phys": 620.9,
+  "gallery_c": 38.78,
+  "sections": {
+    "a": "0-156 +20 tenon, vertical print (galleries, h1, h2)",
+    "b": "156-344.4 as left/right shells, seam plane y=0"
+  },
+  "cents_regression": {
+    "D4": -0.0,
+    "A4": -0.1,
+    "C#5": -0.0,
+    "D5": 7.9,
+    "A5": -19.4,
+    "C#6": -28.2,
+    "D6": 13.5
+  }
+}

@@ -1,0 +1,186 @@
+{
+ "r_socket": 11.0,
+ "r_foot": 11.0,
+ "body_start": 120.0,
+ "L_eff": 570.37,
+ "positions": {
+  "h1": 284.84,
+  "h2": 311.79,
+  "h3": 340.42,
+  "h4": 415.29,
+  "h5": 437.51,
+  "h6": 465.62
+ },
+ "diameters": {
+  "h1": 11.5,
+  "h2": 9.5,
+  "h3": 8.5,
+  "h4": 12.0,
+  "h5": 12.5,
+  "h6": 9.0
+ },
+ "crowns": {
+  "h1": 3.3,
+  "h2": 4.98,
+  "h3": 7.52,
+  "h4": 3.3,
+  "h5": 3.3,
+  "h6": 8.48
+ },
+ "theta_deg": {
+  "h1": 0.0,
+  "h2": 0.0,
+  "h3": 0.0,
+  "h4": 0.0,
+  "h5": 0.0,
+  "h6": 0.0
+ },
+ "chimney_paths": {
+  "h1": 3.3,
+  "h2": 4.98,
+  "h3": 7.52,
+  "h4": 3.3,
+  "h5": 3.3,
+  "h6": 8.48
+ },
+ "dt_open": 1.6,
+ "fingerings": {
+  "D4": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "closed",
+   "h4": "closed",
+   "h5": "closed",
+   "h6": "closed"
+  },
+  "E4": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "closed",
+   "h4": "closed",
+   "h5": "closed",
+   "h6": "open"
+  },
+  "F#4": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "closed",
+   "h4": "closed",
+   "h5": "open",
+   "h6": "open"
+  },
+  "G4": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "closed",
+   "h4": "open",
+   "h5": "open",
+   "h6": "open"
+  },
+  "A4": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "open",
+   "h4": "open",
+   "h5": "open",
+   "h6": "open"
+  },
+  "B4": {
+   "h1": "closed",
+   "h2": "open",
+   "h3": "open",
+   "h4": "open",
+   "h5": "open",
+   "h6": "open"
+  },
+  "C#5": {
+   "h1": "open",
+   "h2": "open",
+   "h3": "open",
+   "h4": "open",
+   "h5": "open",
+   "h6": "open"
+  },
+  "D5": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "closed",
+   "h4": "closed",
+   "h5": "closed",
+   "h6": "closed"
+  },
+  "E5": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "closed",
+   "h4": "closed",
+   "h5": "closed",
+   "h6": "open"
+  },
+  "F#5": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "closed",
+   "h4": "closed",
+   "h5": "open",
+   "h6": "open"
+  },
+  "G5": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "closed",
+   "h4": "open",
+   "h5": "open",
+   "h6": "open"
+  },
+  "A5": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "open",
+   "h4": "open",
+   "h5": "open",
+   "h6": "open"
+  },
+  "B5": {
+   "h1": "closed",
+   "h2": "open",
+   "h3": "open",
+   "h4": "open",
+   "h5": "open",
+   "h6": "open"
+  },
+  "C#6": {
+   "h1": "open",
+   "h2": "open",
+   "h3": "open",
+   "h4": "open",
+   "h5": "open",
+   "h6": "open"
+  },
+  "D6": {
+   "h1": "closed",
+   "h2": "closed",
+   "h3": "closed",
+   "h4": "closed",
+   "h5": "closed",
+   "h6": "closed"
+  }
+ },
+ "targets": {
+  "D4": 293.665,
+  "E4": 329.628,
+  "F#4": 369.994,
+  "G4": 391.995,
+  "A4": 440.0,
+  "B4": 493.883,
+  "C#5": 554.365,
+  "D5": 587.33,
+  "E5": 659.255,
+  "F#5": 739.989,
+  "G5": 783.991,
+  "A5": 880.0,
+  "B5": 987.767,
+  "C#6": 1108.731,
+  "D6": 1174.659
+ }
+}

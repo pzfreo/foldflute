@@ -1,0 +1,49 @@
+{
+  "design": "M2b rev2: V-profile diameters compress within-hand stretches; 45-deg square-to-round loft at tenon root fixes section A print",
+  "diameters": {
+    "h1": 11.5,
+    "h2": 9.5,
+    "h3": 7.5,
+    "h4": 12.0,
+    "h5": 9.5,
+    "h6": 7.5
+  },
+  "visible_holes": {
+    "h1": 74.3,
+    "h2": 105.5,
+    "h3": 137.5,
+    "h4": 204.7,
+    "h5": 218.2,
+    "h6": 262.9
+  },
+  "hand_stretch_mm": {
+    "top_h1_h3": 63.2,
+    "bottom_h4_h6": 58.2,
+    "was_S1": [
+      75.3,
+      77.2
+    ],
+    "lowA": [
+      52.0,
+      53.5
+    ]
+  },
+  "R2_cents": {
+    "D5": 7.8,
+    "E5": -12.1,
+    "F#5": -15.0,
+    "G5": -5.6,
+    "A5": -33.0,
+    "B5": -38.0,
+    "C#6": -38.1,
+    "D6": 16.0
+  },
+  "gallery_C": 31.65,
+  "joint_x": 210.0,
+  "L_phys": 621.2,
+  "body_bbox": [
+    344.4,
+    30.0,
+    60.5
+  ]
+}
