@@ -21,7 +21,7 @@ from netgen.occ import (Axes, Box, Cone, Cylinder, Dir, Glue,
 import ngsolve as ng
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-G = json.load(open(os.path.join(HERE, '..', 'm2d_fem_geometry.json')))
+G = json.load(open(os.path.join(HERE, '..', os.environ.get('FEMGEO', 'm2d_fem_geometry.json'))))
 
 C_MM_S = 343_360.0
 HOLES = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
@@ -61,8 +61,11 @@ def air_column():
     col = Cylinder(Pnt(0, 0, 0), X, r=G['r_socket'], h=BS)
     for i in range(nseg):
         x0, x1 = xs[i + 1], xs[i + 2]
-        col = col + Cone(Axes(Pnt(x0, 0, 0), X, Dir(0, 0, 1)), r_bore(x0), r_bore(x1),
-                         x1 - x0, 2 * math.pi)
+        if abs(r_bore(x0) - r_bore(x1)) < 1e-9:
+            col = col + Cylinder(Pnt(x0, 0, 0), X, r=r_bore(x0), h=x1 - x0)
+        else:
+            col = col + Cone(Axes(Pnt(x0, 0, 0), X, Dir(0, 0, 1)),
+                             r_bore(x0), r_bore(x1), x1 - x0, 2 * math.pi)
     z0, sl = face_plane()
     for h in HOLES:
         hx = G['positions'][h]
@@ -90,36 +93,49 @@ def lower_halfspace(z0, sl):
 
 
 def build_domain(mask):
+    """Column + box radiation pockets at each OPEN exit (p=0 on pocket outer
+    surfaces ~20mm out; pocket modes >4kHz, band stays pure column). Closed
+    holes: no pocket = sealed stub."""
     z0, sl = face_plane()
     col = air_column()
-    # body: slab around the bore, top face = tilted plane
     body = Box(Pnt(BS - 60, -15, -40), Pnt(LE, 15, 25))
     body = body - lower_halfspace(z0, sl)
-    ext = Box(Pnt(BS - 40, -80, -95), Pnt(LE + 60, 80, 60))
-    ext = ext - body
+    boxes = []
     for h in HOLES:
-        if mask[h] == 'closed':
-            hx = G['positions'][h]
-            th = math.radians(G['theta_deg'][h])
-            d = Dir(math.sin(th), 0, -math.cos(th))
-            ln0 = path_to_plane(h) + r_bore(hx)
-            ext = ext - Cylinder(Pnt(hx, 0, 0), d,
-                                 r=G['diameters'][h] / 2.0 + 4.0,
-                                 h=ln0 + 5.0)
-    ext = ext - col
+        if mask[h] != 'open':
+            continue
+        hx = G['positions'][h]
+        th = math.radians(G['theta_deg'][h])
+        t0 = path_to_plane(h) + r_bore(hx)
+        ex = hx + t0 * math.sin(th)             # exit centre x
+        ez = -t0 * math.cos(th)                 # exit centre z (on plane)
+        boxes.append((ex - 35, ex + 35, -35.0, 35.0, ez - 42.0, ez - 0.25))
+    boxes.append((LE, LE + 45.0, -32.0, 32.0, -32.0, 32.0))  # foot
+    pockets = None
+    for (x0, x1, y0, y1, zz0, zz1) in boxes:
+        b = Box(Pnt(x0, y0, zz0), Pnt(x1, y1, zz1))
+        pockets = b if pockets is None else pockets + b
+    ext = pockets - body - col
     col.solids[0].name = 'col'
     col.solids[0].maxh = 5.5
-    for s in ext.solids:
-        s.name = 'ext'
-        s.maxh = 16.0
+    for sld in ext.solids:
+        sld.name = 'ext'
+        sld.maxh = 6.0
     dom = Glue([col, ext])
+    def on_pocket_skin(c):
+        for (x0, x1, y0, y1, zz0, zz1) in boxes:
+            if (x0 - 0.1 <= c.x <= x1 + 0.1 and y0 - 0.1 <= c.y <= y1 + 0.1
+                    and zz0 - 0.1 <= c.z <= zz1 + 0.1):
+                if (abs(c.x - x0) < 0.1 or abs(c.x - x1) < 0.1
+                        or abs(c.y - y0) < 0.1 or abs(c.y - y1) < 0.1
+                        or abs(c.z - zz0) < 0.1):
+                    return True
+        return False
     for f in dom.faces:
         c = f.center
         if abs(c.x) < 1e-6:
             f.name = 'popen'
-        elif (abs(c.x - (BS - 40)) < 1e-6 or abs(c.x - (LE + 60)) < 1e-6
-              or abs(abs(c.y) - 80) < 1e-6 or abs(c.z + 95) < 1e-6
-              or abs(c.z - 60) < 1e-6):
+        elif on_pocket_skin(c):
             f.name = 'popen'
         else:
             f.name = 'wall'
