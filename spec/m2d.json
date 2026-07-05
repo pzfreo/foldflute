@@ -1,0 +1,228 @@
+{
+  "name": "m2d",
+  "description": "Tapered angled-chimney low-D whistle core (spec v0.4). Single source of truth: foldflute.geometry reads this; solids.py and the FEM gate both derive from it. Face is a flat plane fit through the two crown_ref holes. Acoustic length/positions are subject to re-solve against per-hole FEM corrections (reports/fem_gate_*.json).",
+  "target": {
+    "fundamental": "D4",
+    "pitch_standard_hz": 440.0,
+    "temperature_c": 20.0
+  },
+  "bore": {
+    "socket_radius": 11.0,
+    "foot_radius": 7.0,
+    "body_start": 120.0,
+    "length": 550.505
+  },
+  "face": {
+    "kind": "tilted_plane",
+    "crown_ref": {
+      "h1": 4.0,
+      "h6": 16.0
+    },
+    "note": "crown = perpendicular depth from bore wall to face at that hole; plane fit through h1 and h6 exit points"
+  },
+  "holes": [
+    {
+      "id": "h1",
+      "position": 273.474,
+      "diameter": 11.0,
+      "tilt_deg": 55.0,
+      "finger": "L1"
+    },
+    {
+      "id": "h2",
+      "position": 309.874,
+      "diameter": 10.5,
+      "tilt_deg": -13.507,
+      "finger": "L2"
+    },
+    {
+      "id": "h3",
+      "position": 341.89,
+      "diameter": 10.0,
+      "tilt_deg": -28.044,
+      "finger": "L3"
+    },
+    {
+      "id": "h4",
+      "position": 393.575,
+      "diameter": 10.0,
+      "tilt_deg": 32.831,
+      "finger": "R1"
+    },
+    {
+      "id": "h5",
+      "position": 412.566,
+      "diameter": 10.5,
+      "tilt_deg": 28.07,
+      "finger": "R2"
+    },
+    {
+      "id": "h6",
+      "position": 463.069,
+      "diameter": 11.0,
+      "tilt_deg": -41.86,
+      "finger": "R3"
+    }
+  ],
+  "hole_correction_dt_open": 1.6,
+  "fingerings": {
+    "D4": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "closed",
+      "h6": "closed"
+    },
+    "E4": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "closed",
+      "h6": "open"
+    },
+    "F#4": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "open",
+      "h6": "open"
+    },
+    "G4": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "A4": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "B4": {
+      "h1": "closed",
+      "h2": "open",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "C#5": {
+      "h1": "open",
+      "h2": "open",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "D5": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "closed",
+      "h6": "closed"
+    },
+    "E5": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "closed",
+      "h6": "open"
+    },
+    "F#5": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "open",
+      "h6": "open"
+    },
+    "G5": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "A5": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "B5": {
+      "h1": "closed",
+      "h2": "open",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "C#6": {
+      "h1": "open",
+      "h2": "open",
+      "h3": "open",
+      "h4": "open",
+      "h5": "open",
+      "h6": "open"
+    },
+    "D6": {
+      "h1": "closed",
+      "h2": "closed",
+      "h3": "closed",
+      "h4": "closed",
+      "h5": "closed",
+      "h6": "closed"
+    }
+  },
+  "targets": {
+    "D4": 293.665,
+    "E4": 329.628,
+    "F#4": 369.994,
+    "G4": 391.995,
+    "A4": 440.0,
+    "B4": 493.883,
+    "C#5": 554.365,
+    "D5": 587.33,
+    "E5": 659.255,
+    "F#5": 739.989,
+    "G5": 783.991,
+    "A5": 880.0,
+    "B5": 987.767,
+    "C#6": 1108.731,
+    "D6": 1174.659
+  },
+  "constraint": {
+    "max_within_hand_gap_mm": 29.0,
+    "within_hand_pairs": [
+      [
+        "h1",
+        "h2"
+      ],
+      [
+        "h2",
+        "h3"
+      ],
+      [
+        "h4",
+        "h5"
+      ],
+      [
+        "h5",
+        "h6"
+      ]
+    ]
+  }
+}
