@@ -1,0 +1,16 @@
+D4   target   293.67 | 1D   293.33 (  -2.0 c) | FEM   295.02 (  +8.0 c) | FEM-1D  +10.0 c | ne 6469
+E4   target   329.63 | 1D   327.32 ( -12.1 c) | FEM   331.30 (  +8.7 c) | FEM-1D  +20.9 c | ne 6441
+F#4  target   369.99 | 1D   362.29 ( -36.4 c) | FEM   366.40 ( -16.9 c) | FEM-1D  +19.5 c | ne 6368
+G4   target   392.00 | 1D   384.72 ( -32.4 c) | FEM   388.78 ( -14.2 c) | FEM-1D  +18.2 c | ne 6471
+A4   target   440.00 | 1D   439.49 (  -2.0 c) | FEM   447.05 ( +27.5 c) | FEM-1D  +29.5 c | ne 6497
+B4   target   493.88 | 1D   491.00 ( -10.1 c) | FEM   499.49 ( +19.6 c) | FEM-1D  +29.7 c | ne 6550
+C#5  target   554.37 | 1D   548.59 ( -18.1 c) | FEM   556.86 (  +7.8 c) | FEM-1D  +25.9 c | ne 6578
+D5   target   587.33 | 1D   587.33 (  +0.0 c) | FEM   589.49 (  +6.4 c) | FEM-1D   +6.4 c | ne 6469
+E5   target   659.25 | 1D   644.78 ( -38.4 c) | FEM   651.86 ( -19.5 c) | FEM-1D  +18.9 c | ne 6441
+F#5  target   739.99 | 1D   716.97 ( -54.7 c) | FEM   724.68 ( -36.2 c) | FEM-1D  +18.5 c | ne 6368
+G5   target   783.99 | 1D   764.95 ( -42.6 c) | FEM   771.81 ( -27.1 c) | FEM-1D  +15.5 c | ne 6471
+A5   target   880.00 | 1D   847.71 ( -64.7 c) | FEM   863.85 ( -32.1 c) | FEM-1D  +32.6 c | ne 6497
+B5   target   987.77 | 1D   937.11 ( -91.1 c) | FEM   961.13 ( -47.3 c) | FEM-1D  +43.8 c | ne 6550
+C#6  target  1108.73 | 1D  1108.73 (  +0.0 c) | FEM  1125.97 ( +26.7 c) | FEM-1D  +26.7 c | ne 6578
+D6   target  1174.66 | 1D  1188.50 ( +20.3 c) | FEM  1190.23 ( +22.8 c) | FEM-1D   +2.5 c | ne 6469
+saved -> /Users/paul/repos/foldflute/scripts/fem/../../reports/fem_gate_ctl_fem_geometry.json
